@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.dao.ITestDao" >
+  <resultMap id="BaseResultMap" type="com.jk.model.Tests" >
+    <id column="userid" property="userid" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="useradr" property="useradr" jdbcType="VARCHAR" />
+  </resultMap>
+
+    <select id="queryInfo" resultMap="BaseResultMap" >
+    
+     select * from test_user  
+     limit #{offset},#{limit}
+     
+    </select>
+    
+    <select id="queryEchars" resultType="com.jk.model.Tests" >
+    
+     select * from test_user  
+     
+    </select>
+    
+     <select id="queryCount" resultType="Long" >
+     select count(*) from test_user where 1=1 
+    </select>
+    
+  
+</mapper>
